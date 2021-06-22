@@ -1,0 +1,379 @@
+.TIF FILES
+------------------------------------------------------------------------------
+
+Several functions in the Klipper Library create internal TIF files (Table
+Information Files).  In each of these cases, the functions are designed
+such that these files may be deleted without ill effect.  All functions
+that use TIF files check to see if they exist and build them if necessary.
+
+In fact, in several cases, such as editing a menu definition file, it is
+a good idea to delete the .TIF file before running the application so that
+a fresh one will be built reflecting whatever changes you have made.
+
+The following functions create .TIF files:
+
+    _KMenu()    --> MENUDEF.TIF
+    _MenuA()    --> APPMSG.TIF
+    Help()      --> SYS_HLP1.TIF
+    Help()      --> SYS_HLP2.TIF
+    _ReIndex()  --> DATALINK.TIF
+    _SetIndex() --> DATALINK.TIF
+
+Some of these functions allow you to specify the NAME or the LOCATION
+(ie, PATH) of the TIF file.  If you opt to do this, then you must keep
+track of those names accordingly to avoid confusion.
+
+
+BOX DEFINITIONS
+------------------------------------------------------------------------------
+
+The following preprocessor definitions are listed in KLIPPER.CH
+
+BOXSINGLE      : single line border all sides
+
+BOXDOUBLESIDE  : double line sides, single line top/bottom
+
+BOXDOUBLETOP   : double line top/bottom, single line sides
+
+BOXDOUBLE      : double line all sides
+
+BOXTHICK       : "Thick" line all sides
+
+BOXNONE        : no box (space for line draw)
+
+
+EXAMPLES
+
+ BOXSINGLE  BOXDOUBLESIDE  BOXDOUBLETOP   BOXDOUBLE    BOXTHICK
+ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ
+ ⁄ƒƒƒƒƒƒø   ÷ƒƒƒƒƒƒƒƒƒ∑    ’ÕÕÕÕÕÕÕÕÕÕ∏   …ÕÕÕÕÕÕÕÕª   €ﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂ€
+ ≥      ≥   ∫         ∫    ≥          ≥   ∫        ∫   ›             ﬁ
+ ≥      ≥   ∫         ∫    ≥          ≥   ∫        ∫   ›             ﬁ
+ ≥      ≥   ∫         ∫    ≥          ≥   ∫        ∫   ›             ﬁ
+ ¿ƒƒƒƒƒƒŸ   ”ƒƒƒƒƒƒƒƒƒΩ    ‘ÕÕÕÕÕÕÕÕÕÕæ   »ÕÕÕÕÕÕÕÕº   €‹‹‹‹‹‹‹‹‹‹‹‹‹€
+
+
+INCLUDES
+------------------------------------------------------------------------------
+
+KLIPPER.CH    General Klipper Library definitions
+KFILE.CH      Definitions used by the BEGIN_FILE and END_FILE xtrans commands
+KGRAPH.CH     Definitions for alternate Bargraph function syntax
+KMETRIC.CH    Definitions used by _MetricConvert() function
+
+
+The following source code files use the following #include statements:
+
+
+SOURCE FILE                             #INCLUDE
+******************************************************************
+ALLFIELD.PRG:                           #include "klipper.ch"
+
+ARR2STR.PRG:                            #include "klipper.ch"
+                                        #include "fileio.ch"
+
+ARRAYTXT.PRG:                           #include "fileio.ch"
+
+BOX.PRG:                                #include "klipper.ch"
+
+CHECKDRV.PRG:                           #include "fileio.ch"
+
+CHECKSUM.PRG:                           #include "klipper.ch"
+
+CHRLIMIT.PRG:                           #include "klipper.ch"
+
+COLOR2NU.PRG:                           #include "klipper.ch"
+
+COLORSAY.PRG:                           #include "klipper.ch"
+
+DBCHOICE.PRG:                           #include "inkey.ch"
+
+DIAL.PRG:                               #include "klipper.ch"
+                                        #include "fileio.ch"
+                                        #include "inkey.ch"
+
+FCOMBINE.PRG:                           #include "fileio.ch"
+
+FEOF.PRG:                               #include "fileio.ch"
+
+FILE2VAR.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+
+FILEBOX.PRG:                            #include "klipper.ch"
+
+FILEBROW.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+                                        #include "inkey.ch"
+
+FPEEKBYT.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+
+FSCREEN.PRG:                            #include "klipper.ch"
+
+FSEEK.PRG:                              #include "klipper.ch"
+
+FSIZE.PRG:                              #include "fileio.ch"
+
+FWRITELI.PRG:                           #include "klipper.ch"
+
+FX286MS.PRG:                            #include "set.ch"
+                                        #include "klipper.ch"
+
+IMPORTP.PRG:                            #include "klipper.ch"
+                                        #include "kfile.ch"
+                                        #include "fileio.ch"
+
+ISDBF.PRG:                              #include "fileio.ch"
+
+ISDBFMEM.PRG:                           #include "fileio.ch"
+                                        #include "klipper.ch"
+
+ISENVVAR.PRG:                           #include "klipper.ch"
+
+KMENU.PRG:                              #include "inkey.ch"
+                                        #include "kfile.ch"
+                                        #include "klipper.ch"
+                                        #include "kfile.ch"
+                                        #include "klipper.ch"
+
+LINEDAVA.PRG:                           #include "klipper.ch"
+
+LINEDGET.PRG:                           #include "klipper.ch"
+
+LINEDKIL.PRG:                           #include "klipper.ch"
+
+LINEDPUT.PRG:                           #include "klipper.ch"
+
+LINEDSIZ.PRG:                           #include "klipper.ch"
+
+MAKEDICT.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+
+MEMARRAY.PRG:                           #include "fileio.ch"
+
+MENUA.PRG:                              #include "achoice.ch"
+                                        #include "inkey.ch"
+                                        #include "klipper.ch"
+
+METRIC.PRG:                             #include "kmetric.ch"
+
+NEON.PRG:                               #include "setcurs.ch"
+                                        #include "klipper.ch"
+
+NTXKEY.PRG:                             #include "fileio.ch"
+
+NUM2COLO.PRG:                           #include "klipper.ch"
+
+PASSWORD.PRG:                           #include "klipper.ch"
+                                        #include "inkey.ch"
+
+PEEKSET.PRG:                            #include "klipper.ch"
+
+POPBOX.PRG:                             #include "klipper.ch"
+
+POPSCRSV.PRG:                           #include "fileio.ch"
+                                        #include "inkey.ch"
+                                        #include "klipper.ch"
+
+POPSET.PRG:                             #include "klipper.ch"
+
+PREPARE.PRG:                            #include "fileio.ch"
+                                        #include "klipper.ch"
+                                        #include "error.ch"
+
+PRNTFILE.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+
+PRNTTEXT.PRG:                           #include "fileio.ch"
+
+PULLTEXT.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+
+PUSHSET.PRG:                            #include "klipper.ch"
+                                        #include "set.ch"
+
+Q_CLOSE.PRG:                            #include "klipper.ch"
+
+Q_CONFIR.PRG:                           #include "klipper.ch"
+                                        #include "inkey.ch"
+
+READF.PRG:                              #include "setcurs.ch"
+
+READLINE.PRG:                           #include "fileio.ch"
+
+RECOLOR.PRG:                            #include "klipper.ch"
+
+SAVESCRN.PRG:                           #include "fileio.ch"
+                                        #include "inkey.ch"
+                                        #include "klipper.ch"
+
+SCRNSCAN.PRG:                           #include "klipper.ch"
+
+SELUSRPR.PRG:                           #include "klipper.ch"
+                                        #include "kfile.ch"
+
+SETUSRPR.PRG:                           #include "klipper.ch"
+                                        #include "kfile.ch"
+
+SLIDEBOX.PRG:                           #include "klipper.ch"
+
+STR2ARR.PRG:                            #include "klipper.ch"
+                                        #include "fileio.ch"
+
+SYS_HELP.PRG:                           #include "inkey.ch"
+                                        #include "memoedit.ch"
+                                        #include "setcurs.ch"
+                                        #include "set.ch"
+                                        #include "klipper.ch"
+                                        #include "kfile.ch"
+
+S_USE.PRG:                              #include "klipper.ch"
+                                        #include "inkey.ch"
+
+TEXTBROW.PRG:                           #include "klipper.ch"
+                                        #include "inkey.ch"
+
+TIMER.PRG:                              #include "klipper.ch"
+                                        #include "inkey.ch"
+                                        #include "set.ch"
+
+TO_PRN.PRG:                             #include "klipper.ch"
+
+TXTARRAY.PRG:                           #include "fileio.ch"
+
+VAR2FILE.PRG:                           #include "klipper.ch"
+                                        #include "fileio.ch"
+
+WSPOPSSV.PRG:                           #include "fileio.ch"
+                                        #include "inkey.ch"
+                                        #include "klipper.ch"
+
+WSSAVSCR.PRG:                           #include "fileio.ch"
+                                        #include "inkey.ch"
+                                        #include "klipper.ch"
+
+WSSVSCR.PRG:                            #include "fileio.ch"
+                                        #include "inkey.ch"
+                                        #include "klipper.ch"
+
+X_USE.PRG:                              #include "klipper.ch"
+                                        #include "inkey.ch"
+
+__EDIT.PRG:                             #include "INKEY.CH"
+
+__FOPEN.PRG:                            #include "fileio.ch"
+                                        #include "klipper.ch"
+
+__GAT.PRG:                              #include "klipper.ch"
+
+__LOG.PRG:                              #include "klipper.ch"
+
+__LPRINT.PRG:                           #include "set.ch"
+
+__REIDX.PRG:                            #include "klipper.ch"
+                                        #include "kfile.ch"
+
+__SCAT.PRG:                             #include "klipper.ch"
+
+__SETIDX.PRG:                           #include "klipper.ch"
+                                        #include "kfile.ch"
+                                        #include "klipper.ch"
+
+
+OS ENVIRONMENT VARIABLES
+------------------------------------------------------------------------------
+
+The following OS Environment variables are used in the places indicated.
+Refer to your OS manual for information on setting and using OS
+environment variables.
+
+
+U_NAME
+
+    U_NAME is used directly (ie, read from the environment) by the
+    following functions:
+
+        _MENUA()
+        _PREPARE()
+        _SELUSRPRN()
+        _SETUSRPRN()
+
+    In addition to this, the value obtained from this environment
+    variable is used extensively in MANY places thorughout the
+    library.  Use of the Klipper Library almost mandates the setting
+    of this environment variable.
+
+
+    ie, SET U_NAME=KIRBY
+
+HELPPATH
+
+    This variable is used in the On-Line Help function.  If it is
+    specified, it's contents must be a PATH setting indicating the
+    location of the SYS_HELPDBF file.  If it is not specified, the
+    current directory is assumed.
+
+
+MSGPATH, APPMSGFILE, APPMSGIDX
+
+    These variables are used my the _MenuA() function.  All three are,
+    currently, reserved for future use and are not used in the current
+    release.
+
+    Together they will, when complete, enable applications using the
+    _KMENU() menu system to send and receive messages between users.
+
+
+BOXDELAY
+
+    This variable is used by the _POPBOX() and _SLIDEBOX() functions
+    to "slow down" the "exploding box" effect when it is too fast on
+    some CPUs.
+
+    It is a number in the range of 1 to 65535.  Normal ranges, however,
+    are in the 100 to 500 range.
+
+    ie, SET BOXDELAY=100
+
+
+ERRPATH, ERRFILE
+
+    These two variables contain a PATH and a FILE NAME, respectively,
+    of the location and name of the error log file that is created
+    by the _Prepare() function's error object.  If this environment
+    variable is not present at run-time, then the defaults are "current
+    directory" for ERRPATH, and "ERRORLOG.TXT" for the errorlog file
+    name.
+
+    ie, SET ERRPATH=C:\THE\PATH
+        SET ERRFILE=ERRFILE.LOG
+
+BOXRATIO
+
+    This variable is used in _SLIDEBOX().  It controls the box ratio
+    for verticle and horizontal explode speeds.  Since most boxes
+    you may wish to draw will be longer in one direction than in the
+    other (due to having 80 columns but only 25 lines), the box will
+    finish it's verticle draw long before it finishes the horizontal
+    draw.
+
+    This variable says, in effect, jump <BOXRATIO> horizontal positions
+    for each verticle position drawn.
+
+    Thus the variable can be used to help ensure that the box completes
+    it's draw in all directions at approximately the same time.
+
+    It is available in the first place because you may use several
+    different screen modes (I commonly use 132x50).
+
+    If not present at run-time, the default value is 3.  This is pretty
+    close for 80x25 mode.  But in other modes, you may want to experiment
+    or you may just prefer that one explode direction complete before
+    another.
+
+
+
+-------------------
+| END OF MISC.TXT |
+-------------------
+
